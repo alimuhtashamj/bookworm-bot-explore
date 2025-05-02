@@ -37,14 +37,17 @@ const ChatInterface: React.FC = () => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex items-center justify-between p-4 border-b">
-        <h2 className="text-lg font-semibold">BookWorm Chat</h2>
+    <div className="flex flex-col h-full bg-[#f5f1e9]">
+      <div className="flex items-center justify-between p-4 border-b border-[#d4c8b8] bg-[#fcf9f3]">
+        <div className="flex items-center gap-3">
+          <h2 className="text-xl font-serif font-semibold text-[#6b5b46]">BookWorm Academic Chat</h2>
+          <span className="text-xs font-medium text-[#a39179] px-2 py-1 rounded-full bg-[#f0e8d9]">Literature Department</span>
+        </div>
         {isAdmin && <FileUpload />}
       </div>
       
-      <ScrollArea className="flex-1 p-4">
-        <div className="flex flex-col">
+      <ScrollArea className="flex-1 p-4 bg-[#f5f1e9] bg-opacity-60">
+        <div className="flex flex-col space-y-4">
           {messages.map((message) => (
             <Message key={message.id} message={message} />
           ))}
@@ -52,16 +55,21 @@ const ChatInterface: React.FC = () => {
         </div>
       </ScrollArea>
       
-      <div className="p-4 border-t">
+      <div className="p-4 border-t border-[#d4c8b8] bg-[#fcf9f3]">
         <div className="flex gap-2">
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask about your course materials..."
-            className="flex-1"
+            className="flex-1 border-[#d4c8b8] bg-[#fefcf9] text-[#6b5b46] placeholder:text-[#a39179]/70 focus-visible:ring-[#a39179]"
           />
-          <Button onClick={handleSendMessage} size="icon" disabled={input.trim() === ''}>
+          <Button 
+            onClick={handleSendMessage} 
+            size="icon" 
+            disabled={input.trim() === ''} 
+            className="bg-[#a39179] hover:bg-[#8c7d65] text-white"
+          >
             <Send size={18} />
           </Button>
         </div>
