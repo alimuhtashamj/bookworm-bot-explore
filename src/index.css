@@ -5,83 +5,83 @@
 
 @layer base {
   :root {
-    --background: 43 38% 97%;
-    --foreground: 30 20% 35%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 42 30% 97%;
-    --card-foreground: 30 20% 35%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 43 38% 97%;
-    --popover-foreground: 30 20% 35%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 33 25% 55%;
-    --primary-foreground: 43 38% 97%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 35 25% 90%;
-    --secondary-foreground: 30 20% 35%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    --muted: 35 25% 90%;
-    --muted-foreground: 30 15% 50%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 35 25% 90%;
-    --accent-foreground: 30 20% 35%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 43 38% 97%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 33 30% 82%;
-    --input: 33 30% 82%;
-    --ring: 33 25% 55%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 36 33% 95%;
-    --sidebar-foreground: 30 20% 35%;
-    --sidebar-primary: 33 25% 55%;
-    --sidebar-primary-foreground: 43 38% 97%;
-    --sidebar-accent: 35 25% 90%;
-    --sidebar-accent-foreground: 30 20% 35%;
-    --sidebar-border: 33 30% 82%;
-    --sidebar-ring: 33 25% 55%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 240 5.9% 10%;
   }
 
   .dark {
-    --background: 30 15% 15%;
-    --foreground: 35 25% 90%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 30 15% 15%;
-    --card-foreground: 35 25% 90%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 30 15% 15%;
-    --popover-foreground: 35 25% 90%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 33 25% 55%;
-    --primary-foreground: 30 15% 10%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
 
-    --secondary: 30 10% 25%;
-    --secondary-foreground: 35 25% 90%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 30 10% 25%;
-    --muted-foreground: 35 15% 65%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 30 10% 25%;
-    --accent-foreground: 35 25% 90%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 35 25% 90%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 10% 30%;
-    --input: 30 10% 30%;
-    --ring: 33 25% 55%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
 
-    --sidebar-background: 30 15% 10%;
-    --sidebar-foreground: 35 20% 90%;
-    --sidebar-primary: 33 25% 55%;
-    --sidebar-primary-foreground: 35 20% 90%;
-    --sidebar-accent: 30 10% 25%;
-    --sidebar-accent-foreground: 35 20% 90%;
-    --sidebar-border: 30 10% 30%;
-    --sidebar-ring: 33 25% 55%;
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 4.9% 83.9%;
   }
 }
 
@@ -92,11 +92,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Palatino', 'Georgia', serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Palatino', 'Georgia', serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
 
@@ -112,17 +112,5 @@
   .scroll-hidden {
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
-
-  .vintage-paper {
-    background-color: #f5f1e9;
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  .vintage-shadow {
-    box-shadow: 0 2px 8px rgba(139, 119, 95, 0.2);
   }
 }

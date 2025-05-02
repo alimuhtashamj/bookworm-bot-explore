@@ -6,6 +6,7 @@ import ChatInterface from '@/components/ChatInterface';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -39,6 +40,10 @@ const Index = () => {
             >
               <Menu size={18} />
             </Button>
+          </div>
+          
+          <div className="absolute top-4 right-4 z-10">
+            <ThemeToggle />
           </div>
           
           <ChatInterface />
