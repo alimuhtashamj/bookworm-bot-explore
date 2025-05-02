@@ -9,7 +9,7 @@ import FileUpload from './FileUpload';
 import { useChat } from '@/context/ChatContext';
 
 const ChatInterface: React.FC = () => {
-  const { messages, addMessage } = useChat();
+  const { messages, addMessage, isAdmin } = useChat();
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +40,7 @@ const ChatInterface: React.FC = () => {
     <div className="flex flex-col h-full">
       <div className="flex items-center justify-between p-4 border-b">
         <h2 className="text-lg font-semibold">BookWorm Chat</h2>
-        <FileUpload />
+        {isAdmin && <FileUpload />}
       </div>
       
       <ScrollArea className="flex-1 p-4">

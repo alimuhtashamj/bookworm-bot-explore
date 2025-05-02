@@ -3,13 +3,12 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Book, BookOpen, FileText, Menu } from 'lucide-react';
+import { Book, BookOpen, Menu } from 'lucide-react';
 import { useChat } from '@/context/ChatContext';
-import { CourseType, FileType } from '@/utils/types';
+import { CourseType } from '@/utils/types';
 
 export const Sidebar = () => {
-  const { files, courses, isSidebarOpen, toggleSidebar } = useChat();
-  const [activeTab, setActiveTab] = useState<'courses' | 'files'>('courses');
+  const { courses, isSidebarOpen, toggleSidebar, departmentName, universityLogo } = useChat();
 
   if (!isSidebarOpen) {
     return (
@@ -28,45 +27,38 @@ export const Sidebar = () => {
 
   return (
     <div className="w-64 bg-sidebar h-screen border-r border-border flex flex-col">
-      <div className="p-4 flex items-center justify-between">
+      <div className="p-4 flex flex-col items-center justify-between">
+        {universityLogo && (
+          <div className="w-full flex justify-center mb-3">
+            <img 
+              src={universityLogo} 
+              alt="University Logo" 
+              className="h-16 w-auto object-contain"
+            />
+          </div>
+        )}
         <div className="flex items-center gap-2">
           <BookOpen className="h-6 w-6 text-primary" />
           <h1 className="text-lg font-bold">BookWorm Bot</h1>
         </div>
+        {departmentName && (
+          <p className="text-sm text-muted-foreground mt-1">{departmentName}</p>
+        )}
         <Button 
           onClick={toggleSidebar} 
           variant="ghost" 
           size="icon" 
-          className="h-8 w-8"
+          className="h-8 w-8 absolute top-4 right-4"
           aria-label="Close sidebar"
         >
           <Menu size={18} />
         </Button>
       </div>
       
-      <div className="flex border-b">
-        <Button
-          variant={activeTab === 'courses' ? 'secondary' : 'ghost'}
-          className="flex-1 rounded-none"
-          onClick={() => setActiveTab('courses')}
-        >
-          Courses
-        </Button>
-        <Button
-          variant={activeTab === 'files' ? 'secondary' : 'ghost'}
-          className="flex-1 rounded-none"
-          onClick={() => setActiveTab('files')}
-        >
-          Files
-        </Button>
-      </div>
-
+      <Separator />
+      
       <ScrollArea className="flex-1 p-4">
-        {activeTab === 'courses' ? (
-          <CoursesList courses={courses} />
-        ) : (
-          <FilesList files={files} />
-        )}
+        <CoursesList courses={courses} />
       </ScrollArea>
     </div>
   );
@@ -95,34 +87,6 @@ const CoursesList = ({ courses }: { courses: CourseType[] }) => {
       ))}
     </div>
   );
-};
-
-const FilesList = ({ files }: { files: FileType[] }) => {
-  if (files.length === 0) {
-    return <div className="text-muted-foreground text-sm py-4">No files uploaded yet</div>;
-  }
-
-  return (
-    <div className="space-y-2">
-      {files.map((file) => (
-        <div key={file.id} className="flex items-center gap-2 p-2 rounded-md hover:bg-accent cursor-pointer">
-          <FileText className="h-4 w-4 text-primary" />
-          <div className="overflow-hidden">
-            <p className="truncate text-sm">{file.name}</p>
-            <p className="text-xs text-muted-foreground">
-              {formatFileSize(file.size)} • {new Date(file.uploadDate).toLocaleDateString()}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const formatFileSize = (bytes: number): string => {
-  if (bytes < 1024) return bytes + ' B';
-  else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-  else return (bytes / 1048576).toFixed(1) + ' MB';
 };
 
 export default Sidebar;
