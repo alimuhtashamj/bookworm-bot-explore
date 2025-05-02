@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
@@ -33,13 +33,13 @@ const Signup: React.FC = () => {
     // In a real app, you would handle signup with backend
     console.log('Signup data:', data);
     // Redirect to chat after signup
-    navigate('/');
+    navigate('/home');
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f5f1e9] p-4">
-      <Card className="w-full max-w-md border-[#d4c8b8] shadow-md bg-[#fcf9f3]">
-        <CardHeader className="space-y-1 text-center border-b border-[#e0d6c8] pb-6">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-md shadow-sm border-muted">
+        <CardHeader className="space-y-1 text-center">
           <div className="flex justify-center mb-4">
             <img 
               src="/placeholder.svg" 
@@ -47,12 +47,12 @@ const Signup: React.FC = () => {
               className="h-16 w-16" 
             />
           </div>
-          <CardTitle className="text-2xl font-serif text-[#6b5b46]">BookWorm Academic Access</CardTitle>
-          <CardDescription className="text-[#8c7d65]">
+          <CardTitle className="text-2xl">BookWorm Access</CardTitle>
+          <CardDescription>
             Create an account to access your course materials
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-6">
+        <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
@@ -60,15 +60,11 @@ const Signup: React.FC = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[#6b5b46]">Full Name</FormLabel>
+                    <FormLabel>Full Name</FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="Enter your full name" 
-                        className="border-[#d4c8b8] bg-[#fefcf9] focus-visible:ring-[#a39179]" 
-                        {...field} 
-                      />
+                      <Input placeholder="Enter your full name" {...field} />
                     </FormControl>
-                    <FormMessage className="text-[#9d6a63]" />
+                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -77,15 +73,11 @@ const Signup: React.FC = () => {
                 name="rollNo"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[#6b5b46]">University Roll No.</FormLabel>
+                    <FormLabel>University Roll No.</FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="Enter your roll number" 
-                        className="border-[#d4c8b8] bg-[#fefcf9] focus-visible:ring-[#a39179]" 
-                        {...field} 
-                      />
+                      <Input placeholder="Enter your roll number" {...field} />
                     </FormControl>
-                    <FormMessage className="text-[#9d6a63]" />
+                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -94,36 +86,23 @@ const Signup: React.FC = () => {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[#6b5b46]">Phone Number</FormLabel>
+                    <FormLabel>Phone Number</FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="Enter your phone number" 
-                        className="border-[#d4c8b8] bg-[#fefcf9] focus-visible:ring-[#a39179]" 
-                        {...field} 
-                      />
+                      <Input placeholder="Enter your phone number" {...field} />
                     </FormControl>
-                    <FormMessage className="text-[#9d6a63]" />
+                    <FormMessage />
                   </FormItem>
                 )}
               />
               <Button 
                 type="submit" 
-                className="w-full bg-[#a39179] hover:bg-[#8c7d65] text-white"
+                className="w-full"
               >
                 Create Account
               </Button>
             </form>
           </Form>
         </CardContent>
-        <CardFooter className="flex justify-center border-t border-[#e0d6c8] pt-4">
-          <Button 
-            variant="link" 
-            onClick={() => navigate('/')} 
-            className="text-[#a39179]"
-          >
-            Already have an account? Sign in
-          </Button>
-        </CardFooter>
       </Card>
     </div>
   );
